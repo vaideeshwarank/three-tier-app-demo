@@ -1,3 +1,11 @@
+Credentials:
+windowsadmin
+Welcome@12345
+
+dbadmin
+Welcome@12345
+userdb
+
 Prequisites:
 install GIT:
 https://git-scm.com/downloads/win
