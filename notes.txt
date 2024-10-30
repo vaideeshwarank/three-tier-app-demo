@@ -15,7 +15,7 @@ close and reopen cmd:
 gh auth login
 
 1) install NodeJs along with chocolatey and python
-https://nodejs.org/en
+https://nodejs.org/dist/v22.11.0/node-v22.11.0-x64.msi
 node -v
 npm -v
 2) install docker engine for windows
