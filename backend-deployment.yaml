@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: vaideesh30/three-tier-app:backend-1.2 # Update with your backend image tag
+          ports:
+            - containerPort: 8080
+          env:
+          - name: SQL_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: SQL_SERVER
+          - name: SQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: SQL_DATABASE
+          - name: SQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: SQL_USER
+          - name: SQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: SQL_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: backend
+
