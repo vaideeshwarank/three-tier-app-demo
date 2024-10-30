@@ -1,13 +1,16 @@
 import React from 'react';
-import DataFetcher from './components/DataFetcher';
+import Header from './components/Header';
+import ProfileOverview from './components/ProfileOverview';
+import FeedbackForm from './components/FeedbackForm';
 
 function App() {
-    return (
-        <div>
-            <h1>Three-Tier Application</h1>
-            <DataFetcher />
-        </div>
-    );
+  return (
+    <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
+      <Header />
+      <ProfileOverview />
+      <FeedbackForm />
+    </div>
+  );
 }
 
 export default App;
